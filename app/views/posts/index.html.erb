@@ -1,0 +1,17 @@
+<h1>Todo list</h1>
+<p><%= link_to 'New Todo list', new_post_path %></p>
+<hr> 
+<% @posts.each do |post| %>
+
+
+
+
+  <h2>Title: <%= post.title %> | Catagory: <%= post.catagory %> | Priority: <%= post.priority %></h2>
+    <%= link_to 'Destroy post' , post , method: :delete %>
+    <%= link_to 'Edit post' , edit_post_path(post) %>
+  <hr>
+
+
+
+<% end %>
+

@@ -1,17 +1,17 @@
-<h1>Todo list</h1>
-<p><%= link_to 'New Todo list', new_post_path %></p>
+<p><%= link_to 'New Todo list', new_post_path, :class => "btn btn-default" %></p>
+<p><%= link_to 'Sort by completed', url_for(sort: 'completed') %> | <%= link_to 'Sort by priority' , url_for(sort: 'priority') %></p>
 <hr> 
 <% @posts.each do |post| %>
 
-
-
-
-  <h2>Title: <%= post.title %> | Catagory: <%= post.catagory %> | Priority: <%= post.priority %></h2>
-    <%= link_to 'Destroy post' , post , method: :delete %>
-    <%= link_to 'Edit post' , edit_post_path(post) %>
+  <h2>Title: <%= post.title %> | Catagory: <%= post.catagory %> | Priority: <%= post.priority %> | 
+    <% if post.completed %>
+      Complete!
+    <% else %>
+      Incomplete
+    <% end %>
+  </h2>
+    <%= link_to 'Destroy post' , post , method: :delete, :class => "btn btn-danger btn-xs" %>
+    <%= link_to 'Edit post' , edit_post_path(post), :class => "btn btn-primary btn-xs"%>  
   <hr>
-
-
-
 <% end %>
 
